@@ -1,0 +1,605 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d417e02a188c61724ade",
+  "position": {
+    "x": 236.4118079013071,
+    "y": 77.600822440887072,
+    "z": 1000,
+    "height": 83.014833308855927,
+    "width": 1667.5153473344105,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "S_DANH_MUC_KHOA"
+                    }
+                  },
+                  "Property": "TenKhoa"
+                }
+              },
+              "queryRef": "S_DANH_MUC_KHOA.TenKhoa",
+              "nativeQueryRef": "KHOA",
+              "active": true,
+              "displayName": "KHOA"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "s",
+                    "Entity": "S_DANH_MUC_KHOA",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "s"
+                                }
+                              },
+                              "Property": "TenKhoa"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Du lịch'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KHOA'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bea43ddda186b84f6eec",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "S_DANH_MUC_KHOA"
+              }
+            },
+            "Property": "TenKhoa"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "S_DANH_MUC_KHOA",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "TenKhoa"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Công nghệ thông tin - ĐHĐN'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Công nghệ thông tin - ĐHSP'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Đại học Đà Nẵng'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Đoàn thanh niên'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Giáo dục thể chất'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Hội sinh viên'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Ngữ Văn'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Công tác sinh viên'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Cơ sở vật chất'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Đào tạo'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Kế hoạch tài chính'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Khảo thí và Đảm bảo chất lượng giáo dục'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Khoa học và Hợp tác quốc tế'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Tổ chức - Hành chính'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Phòng Thanh tra - Pháp chế'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Sau đại học'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Tiếng Anh chuyên ngành'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Toán - Tin'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Tổ Ngoại ngữ'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Tổ Thư viện'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Thỉnh giảng'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trung tâm Công nghệ thông tin và Truyền thông'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trung tâm Đào tạo bồi dưỡng'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trung tâm Đào tạo quốc tế'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trung tâm Hỗ trợ sinh viên và Quan hệ doanh nghiệp'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trung tâm Nghiên cứu phát triển và Tư vấn doanh nghiệp'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trung tâm Ngoại ngữ - Tin học'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trường Đại học Bách khoa'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trường Đại học Công nghệ thông tin Việt - Hàn'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trường Đại học Sư phạm Kỹ thuật'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trường Phạm Văn Đồng'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Văn phòng Công đoàn'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Văn phòng Đảng Ủy'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Viện nghiên cứu và Đào tạo Việt-Anh'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Trường Đại học Kinh tế - ĐHĐN'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "4e5c97882b9fe2d8d5ef",
+        "type": "Exclude",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "S_DANH_MUC_KHOA",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "TenKhoa"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Exclude"
+      }
+    ]
+  }
+}

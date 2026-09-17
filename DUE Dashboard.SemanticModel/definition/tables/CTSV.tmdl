@@ -1,0 +1,167 @@
+table CTSV
+	lineageTag: 6e373a36-ba0d-4e1b-9180-ce3ed98908e5
+
+	measure SLSV = DISTINCTCOUNT(CTSV[MA_SINH_VIEN])
+		formatString: 0
+		lineageTag: 7c287669-f7e6-4f36-b6f6-847cf6dca265
+
+	measure '%SV theo GioiTinh' = ```
+			
+			VAR TotalValid = 
+			    CALCULATE(
+			        COUNTROWS(CTSV),
+			        CTSV[GIOI_TINH] <> BLANK(),
+			        CTSV[GIOI_TINH] <> ""
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        SELECTEDVALUE(CTSV[GIOI_TINH]) = "Nam", DIVIDE(CALCULATE(COUNTROWS(CTSV), CTSV[GIOI_TINH] = "Nam"), TotalValid),
+			        SELECTEDVALUE(CTSV[GIOI_TINH]) = "Nữ", DIVIDE(CALCULATE(COUNTROWS(CTSV), CTSV[GIOI_TINH] = "Nữ"), TotalValid),
+			        BLANK()
+			    )
+			```
+		lineageTag: 4077901c-b2b5-4eef-8cc7-bfe9682b05fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% SV theo Nhóm' = ```
+			
+			VAR SoLuongNhom = COUNT(CTSV[MA_SINH_VIEN])
+			VAR TongToanTruong = 
+			    CALCULATE(
+			        COUNT(CTSV[MA_SINH_VIEN]),
+			        ALL(CTSV)
+			    )
+			RETURN
+			    DIVIDE(SoLuongNhom, TongToanTruong, 0)
+			```
+		lineageTag: 70b6a2bf-f370-4ace-a1e2-2e0d7195c806
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MA_SINH_VIEN
+		dataType: string
+		lineageTag: 8bbf4aca-f876-41c9-93b4-bbcaccc887a3
+		summarizeBy: none
+		sourceColumn: MA_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column MA_KY_HOC
+		dataType: string
+		lineageTag: e18601a7-6e3e-4b03-9212-7a2aed2ec8af
+		summarizeBy: none
+		sourceColumn: MA_KY_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_KY_HOC
+		dataType: string
+		lineageTag: bbe1ea14-e162-4230-a947-61748effca49
+		summarizeBy: none
+		sourceColumn: TEN_KY_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TINH_TRANG_HOC_TAP
+		dataType: string
+		lineageTag: 2d326d69-be40-41c5-93b5-a3294be8d6fb
+		summarizeBy: none
+		sourceColumn: TINH_TRANG_HOC_TAP
+
+		annotation SummarizationSetBy = Automatic
+
+	column HINH_THUC_DAO_TAO
+		dataType: string
+		lineageTag: 9dfb7dfd-3bd1-444a-88fc-8380b9666189
+		summarizeBy: none
+		sourceColumn: HINH_THUC_DAO_TAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column GIOI_TINH
+		dataType: string
+		lineageTag: f4042f6d-bf86-43de-8ea3-7df9b8f657d2
+		summarizeBy: none
+		sourceColumn: GIOI_TINH
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUOC_TICH
+		dataType: string
+		lineageTag: d65c1523-7b7e-40ae-8774-d2ce96ed8771
+		summarizeBy: none
+		sourceColumn: QUOC_TICH
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAN_TOC
+		dataType: string
+		lineageTag: 99cec360-34c9-4612-862e-2b257f877bf2
+		summarizeBy: none
+		sourceColumn: DAN_TOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HKTT_TINH_THANHPHO
+		dataType: string
+		lineageTag: 7e45ea5c-fe0d-4e44-8d50-16c155d908a7
+		summarizeBy: none
+		sourceColumn: HKTT_TINH_THANHPHO
+
+		annotation SummarizationSetBy = Automatic
+
+	column KHOA
+		dataType: string
+		lineageTag: fa029566-1814-4110-8c80-91282715ca3c
+		summarizeBy: none
+		sourceColumn: KHOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NGANH
+		dataType: string
+		lineageTag: 70e0b18d-2b2d-48da-8a7d-5f42b0d7b102
+		summarizeBy: none
+		sourceColumn: NGANH
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAM_NHAP_HOC
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e57a6d5-c070-4b79-917e-98fc22c3c447
+		summarizeBy: none
+		sourceColumn: NAM_NHAP_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHUYEN_NGANH
+		dataType: string
+		lineageTag: a59c151a-5568-46c4-926b-868979f0196a
+		summarizeBy: none
+		sourceColumn: CHUYEN_NGANH
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOP
+		dataType: string
+		lineageTag: 019962c9-b9f9-4425-baf2-686f90ea99f9
+		summarizeBy: none
+		sourceColumn: LOP
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CTSV = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139,7125", "DUE_Dashboard", [Query="EXEC DB_SP_QuanLySV"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

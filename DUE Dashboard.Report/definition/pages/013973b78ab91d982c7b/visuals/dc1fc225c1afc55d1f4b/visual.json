@@ -1,0 +1,312 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "dc1fc225c1afc55d1f4b",
+  "position": {
+    "x": 1291.3096441202383,
+    "y": 181.79215950251626,
+    "z": 2000,
+    "height": 435,
+    "width": 614.24591143531745,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuanLy Daotao"
+                    }
+                  },
+                  "Property": "KHOA"
+                }
+              },
+              "queryRef": "QuanLy Daotao.KHOA",
+              "nativeQueryRef": "KHOA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuanLy Daotao"
+                    }
+                  },
+                  "Property": "NGANH"
+                }
+              },
+              "queryRef": "QuanLy Daotao.NGANH",
+              "nativeQueryRef": "NGÀNH",
+              "displayName": "NGÀNH"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuanLy Daotao"
+                    }
+                  },
+                  "Property": "LOP"
+                }
+              },
+              "queryRef": "QuanLy Daotao.LOP",
+              "nativeQueryRef": "LỚP",
+              "displayName": "LỚP"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "QuanLy Daotao"
+                        }
+                      },
+                      "Property": "GPA10"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(QuanLy Daotao.GPA10)",
+              "nativeQueryRef": "ĐTB Thang 10",
+              "displayName": "ĐTB Thang 10"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "QuanLy Daotao"
+                        }
+                      },
+                      "Property": "GPA4"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(QuanLy Daotao.GPA4)",
+              "nativeQueryRef": "Average of GPA4",
+              "displayName": "ĐTB Thang 4"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "QuanLy Daotao"
+                  }
+                },
+                "Property": "NGANH"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "145.46866631214618D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "QuanLy Daotao.KHOA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "208.4099929318591D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "QuanLy Daotao.NGANH"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#cccccc'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e4ba3eeac002daeb507b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "QuanLy Daotao"
+              }
+            },
+            "Property": "NGANH"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "q",
+              "Entity": "QuanLy Daotao",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "q"
+                              }
+                            },
+                            "Property": "NGANH"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Sinh viên Trao đổi'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY25SU11",
+      "reportVersionAtImport": {
+        "visual": "2.4.0",
+        "report": "3.0.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "AccessibleDefault",
+      "reportVersionAtImport": {
+        "visual": "2.4.0",
+        "report": "3.0.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX",
+    "BoxWhiskerChart1455240051538"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "AccessibleDefault",
+          "path": "BuiltInThemes/AccessibleDefault.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "CY25SU11",
+          "path": "BaseThemes/CY25SU11.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "@038811096971972825.png",
+          "path": "@038811096971972825.png",
+          "type": "Image"
+        },
+        {
+          "name": "@35475442349661146.png",
+          "path": "@35475442349661146.png",
+          "type": "Image"
+        },
+        {
+          "name": "@5778057474953178.png",
+          "path": "@5778057474953178.png",
+          "type": "Image"
+        },
+        {
+          "name": "@8239973733550879.png",
+          "path": "@8239973733550879.png",
+          "type": "Image"
+        },
+        {
+          "name": "@8898603661248876.png",
+          "path": "@8898603661248876.png",
+          "type": "Image"
+        },
+        {
+          "name": "@9588160183451288.png",
+          "path": "@9588160183451288.png",
+          "type": "Image"
+        },
+        {
+          "name": "Logo_DUE-18117336401194194.png",
+          "path": "Logo_DUE-18117336401194194.png",
+          "type": "Image"
+        },
+        {
+          "name": "yyy6025017156585437.png",
+          "path": "yyy6025017156585437.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

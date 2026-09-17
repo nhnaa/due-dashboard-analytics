@@ -1,0 +1,474 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "328e72a1167d65cc90f4",
+  "position": {
+    "x": 1291.3096441202383,
+    "y": 640.667051319037,
+    "z": 5000,
+    "height": 435.24185017790171,
+    "width": 612.51564126226015,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimHocPhan"
+                    }
+                  },
+                  "Property": "TEN_HOC_PHAN"
+                }
+              },
+              "queryRef": "DimHocPhan.TEN_HOC_PHAN",
+              "nativeQueryRef": "Tên HP",
+              "active": true,
+              "displayName": "Tên HP"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuanLy Daotao"
+                    }
+                  },
+                  "Property": "Top10_TyLeRot"
+                }
+              },
+              "queryRef": "QuanLy Daotao.Top10_TyLeRot",
+              "nativeQueryRef": "Top10_TyLeRot1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "QuanLy Daotao"
+                  }
+                },
+                "Property": "Top10_TyLeRot"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 3,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "HocPhan"
+                                        }
+                                      },
+                                      "Property": "TyLe_Rot"
+                                    }
+                                  },
+                                  "Function": 1
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "10D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#148030'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Aggregation": {
+                                      "Expression": {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Entity": "HocPhan"
+                                            }
+                                          },
+                                          "Property": "TyLe_Rot"
+                                        }
+                                      },
+                                      "Function": 1
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "50D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 3,
+                                  "Left": {
+                                    "Aggregation": {
+                                      "Expression": {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Entity": "HocPhan"
+                                            }
+                                          },
+                                          "Property": "TyLe_Rot"
+                                        }
+                                      },
+                                      "Function": 1
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "100D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#A32D2D'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 3,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "HocPhan"
+                                        }
+                                      },
+                                      "Property": "TyLe_Rot"
+                                    }
+                                  },
+                                  "Function": 1
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "50D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F2FF00'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top 10 môn có tỷ lệ rớt môn cao nhất'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3f32d6971bfb5b1f0b61",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HocPhan"
+              }
+            },
+            "Property": "TongSoSV"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "h",
+              "Entity": "HocPhan",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "h"
+                        }
+                      },
+                      "Property": "TongSoSV"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "50L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

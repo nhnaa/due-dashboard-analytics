@@ -1,0 +1,402 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "de21b55e6c6228d1e01e",
+  "position": {
+    "x": 796.48105756227426,
+    "y": 689.7980613893377,
+    "z": 15000,
+    "height": 384.39477162578942,
+    "width": 544.61892411390977,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CLGV"
+                    }
+                  },
+                  "Property": "TEN_HOC_PHAN"
+                }
+              },
+              "queryRef": "CLGV.TEN_HOC_PHAN",
+              "nativeQueryRef": "Tên HP",
+              "active": true,
+              "displayName": "Tên HP"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CLGV"
+                        }
+                      },
+                      "Property": "MA_SINH_VIEN"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "CLGV.MA_SINH_VIEN",
+              "nativeQueryRef": "Số lượng SV",
+              "active": true,
+              "displayName": "Số lượng SV"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CLGV"
+                        }
+                      },
+                      "Property": "DIEM_HE_10"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(CLGV.DIEM_HE_10)",
+              "nativeQueryRef": "ĐTB Thang 10",
+              "displayName": "ĐTB Thang 10"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.1
+                    }
+                  }
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 4,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "CLGV"
+                                    }
+                                  },
+                                  "Property": "Deviation"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FF1717'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "CLGV"
+                                        }
+                                      },
+                                      "Property": "Deviation"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "0D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 3,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "CLGV"
+                                        }
+                                      },
+                                      "Property": "Deviation"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "10D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#148030'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'X-Axis Constant Line 1'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ],
+      "trend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Trend line 1'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Mối quan hệ giữa số lượng SV và ĐTB qua từng HP'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

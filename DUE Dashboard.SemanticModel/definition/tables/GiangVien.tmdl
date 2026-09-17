@@ -1,0 +1,137 @@
+table GiangVien
+	lineageTag: bf1791b3-1b82-42d7-85f7-bd17e88e57c0
+
+	measure TyLe_TienSi = ```
+			
+			DIVIDE(
+			    COUNTROWS(FILTER(GiangVien, 
+			        GiangVien[HOC_VI] = "Tiến sĩ" && 
+			        GiangVien[TRANG_THAI_CONG_TAC] = "Công tác bình thường")),
+			    COUNTROWS(FILTER(GiangVien,
+			        GiangVien[TRANG_THAI_CONG_TAC] = "Công tác bình thường"))
+			)
+			```
+		lineageTag: 31c518c8-c662-44ba-a904-3c9e81aa17bf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure GioDayTB =
+			
+			CALCULATE(
+			    AVERAGE(GiangVien[TONG_GIO_DAY_TRONG_NAM]),
+			    GiangVien[TRANG_THAI_CONG_TAC] = "Công tác bình thường"
+			)
+		lineageTag: 6bfa92d1-0bdc-427c-b3a8-b10a815e8254
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MA_GIAO_VIEN
+		dataType: string
+		lineageTag: 5eb6c1e2-81d7-4317-a4fc-3a5dd9c37928
+		summarizeBy: none
+		sourceColumn: MA_GIAO_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column HO_TEN_GV
+		dataType: string
+		lineageTag: ac2c6df5-12f1-4e1a-92f6-78b57f641817
+		summarizeBy: none
+		sourceColumn: HO_TEN_GV
+
+		annotation SummarizationSetBy = Automatic
+
+	column NamSinh
+		dataType: string
+		lineageTag: 2bb26ef4-a1f7-4368-ad74-b9b91773caa4
+		summarizeBy: none
+		sourceColumn: NamSinh
+
+		annotation SummarizationSetBy = Automatic
+
+	column gioitinh
+		dataType: string
+		lineageTag: d5dc4ad2-aa51-4e2b-b074-971f1cb3d3aa
+		summarizeBy: none
+		sourceColumn: gioitinh
+
+		annotation SummarizationSetBy = Automatic
+
+	column KHOA
+		dataType: string
+		lineageTag: 6fb683c4-e198-4111-9e97-f30f03bc7603
+		summarizeBy: none
+		sourceColumn: KHOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOC_VI
+		dataType: string
+		lineageTag: 06b5e301-6c2d-4e26-8a54-8a6721b17c31
+		summarizeBy: none
+		sourceColumn: HOC_VI
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOC_HAM
+		dataType: string
+		lineageTag: d7228559-3388-4e36-b6c9-4b5351e5cd71
+		summarizeBy: none
+		sourceColumn: HOC_HAM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHUC_DANH
+		dataType: string
+		lineageTag: 7319b5e8-0a77-4fe0-8377-126f9922f2fd
+		summarizeBy: none
+		sourceColumn: CHUC_DANH
+
+		annotation SummarizationSetBy = Automatic
+
+	column NANG_LUC_NGOAI_NGU
+		dataType: string
+		lineageTag: 7962ed49-b9b8-48ba-95f7-a70186b86269
+		summarizeBy: none
+		sourceColumn: NANG_LUC_NGOAI_NGU
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANG_THAI_CONG_TAC
+		dataType: string
+		lineageTag: d0a4870c-4ea5-40df-8775-bdaf5edad277
+		summarizeBy: none
+		sourceColumn: TRANG_THAI_CONG_TAC
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAM_HOC
+		dataType: string
+		lineageTag: 5c45945f-42e6-4e7b-8cfa-0b076b3c39eb
+		summarizeBy: none
+		sourceColumn: NAM_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TONG_GIO_DAY_TRONG_NAM
+		dataType: double
+		lineageTag: 62fb0608-57f3-4894-b8bd-946d4645ff73
+		summarizeBy: sum
+		sourceColumn: TONG_GIO_DAY_TRONG_NAM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition GiangVien = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139,7125", "DUE_Dashboard", [Query="EXEC SP_GVSV"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

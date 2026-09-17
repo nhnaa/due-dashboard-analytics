@@ -1,0 +1,130 @@
+table HocPhan
+	lineageTag: 9cc44e10-eb6a-4972-8d2a-3e7e77bd686b
+
+	column MA_HOC_PHAN
+		dataType: string
+		lineageTag: e5ff2c1a-b170-472d-888e-222e4169bd44
+		summarizeBy: none
+		sourceColumn: MA_HOC_PHAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_HOC_PHAN
+		dataType: string
+		lineageTag: 1fac0027-eeee-4fc5-8467-762c9ecf6e40
+		summarizeBy: none
+		sourceColumn: TEN_HOC_PHAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TenKhoa
+		dataType: string
+		lineageTag: 277434d1-757e-4e65-9f47-95676a42159a
+		summarizeBy: none
+		sourceColumn: TenKhoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaKhoa
+		dataType: string
+		lineageTag: d429287a-f9f7-4e17-ab18-166a31fe91d4
+		summarizeBy: none
+		sourceColumn: MaKhoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column MA_KY_HOC
+		dataType: string
+		lineageTag: 81863a8e-899c-4130-84d0-0333d16822a7
+		summarizeBy: none
+		sourceColumn: MA_KY_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_KY_HOC
+		dataType: string
+		lineageTag: 79aa3ce8-ee2d-46a9-aa2c-706c461813a3
+		summarizeBy: none
+		sourceColumn: TEN_KY_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TongSoSV
+		dataType: int64
+		formatString: 0
+		lineageTag: f822c332-d3ac-4ac0-958f-a4aaa490a442
+		summarizeBy: sum
+		sourceColumn: TongSoSV
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiemTB
+		dataType: double
+		lineageTag: cd11a090-381e-4bbb-b68f-ca3b70824aa9
+		summarizeBy: sum
+		sourceColumn: DiemTB
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiemTB_He4
+		dataType: double
+		lineageTag: 24e3a0b6-4271-4b17-aee5-08f91ba522d5
+		summarizeBy: sum
+		sourceColumn: DiemTB_He4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SoSV_Dat
+		dataType: int64
+		formatString: 0
+		lineageTag: 621a170c-849b-4f37-b1cf-ab32913754e3
+		summarizeBy: sum
+		sourceColumn: SoSV_Dat
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoSV_Rot
+		dataType: int64
+		formatString: 0
+		lineageTag: acc57e1f-4901-402e-bafe-8c5c64208f33
+		summarizeBy: sum
+		sourceColumn: SoSV_Rot
+
+		annotation SummarizationSetBy = Automatic
+
+	column TyLe_Dat
+		dataType: double
+		lineageTag: 8899e3f7-c68d-4a88-82ca-07e17da01756
+		summarizeBy: sum
+		sourceColumn: TyLe_Dat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TyLe_Rot
+		dataType: double
+		lineageTag: 0934f856-f66e-4875-beab-85a03d4c701b
+		summarizeBy: sum
+		sourceColumn: TyLe_Rot
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition HocPhan = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139,7125", "DUE_Dashboard", [Query="EXEC sp_ThongKeHocPhan"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

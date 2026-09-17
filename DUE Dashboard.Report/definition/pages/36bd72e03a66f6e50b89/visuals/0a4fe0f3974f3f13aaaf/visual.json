@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "0a4fe0f3974f3f13aaaf",
+  "position": {
+    "x": 243.63048905859893,
+    "y": 10.82802173593773,
+    "z": 0,
+    "height": 59.962724141466488,
+    "width": 1669.1790568095264,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "DASHBOARD HỖ TRỢ CÔNG TÁC QUẢN LÝ CTSV",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe (Bold)",
+                      "fontSize": "28pt",
+                      "color": "#12239e"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

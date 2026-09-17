@@ -1,0 +1,30 @@
+model Model
+	culture: vi-VN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["CTSV","DSSV","QuanLy Daotao","GiangVien","Survey","SurveyResult","HocPhan","S_DANH_MUC_KHOA","CLGV"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table CTSV
+ref table DSSV
+ref table 'QuanLy Daotao'
+ref table GiangVien
+ref table Survey
+ref table DateTableTemplate_f8cb6fed-fee6-460b-a000-8910bd8d6715
+ref table LocalDateTable_f9b958ed-d7fe-49d7-921e-dd0555158c27
+ref table SurveyResult
+ref table SurveyAgg
+ref table HocPhan
+ref table DimHocPhan
+ref table S_DANH_MUC_KHOA
+ref table CLGV
+
+ref cultureInfo vi-VN
+

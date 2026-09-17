@@ -1,0 +1,165 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1790.7652041689278,
+            "y": 678.57426788566454
+          },
+          "nodeIndex": "CTSV",
+          "nodeLineageTag": "6e373a36-ba0d-4e1b-9180-ce3ed98908e5",
+          "size": {
+            "height": 520.999291436641,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1466.3799979770506,
+            "y": 0
+          },
+          "nodeIndex": "DSSV",
+          "nodeLineageTag": "788f1d6c-7e87-4de0-93a1-ae8c6a2f32f3",
+          "size": {
+            "height": 710.32664946080286,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1159.5877299412195,
+            "y": 424.1954499044499
+          },
+          "nodeIndex": "QuanLy Daotao",
+          "nodeLineageTag": "fdf70a15-667c-4479-80e7-dda4d9e20a7d",
+          "size": {
+            "height": 794.09873277883321,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 857,
+            "y": 5
+          },
+          "nodeIndex": "GiangVien",
+          "nodeLineageTag": "bf1791b3-1b82-42d7-85f7-bd17e88e57c0",
+          "size": {
+            "height": 439.15158705580541,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 565,
+            "y": 20
+          },
+          "nodeIndex": "Survey",
+          "nodeLineageTag": "87ee958f-6fdc-42ff-8670-2722562ee37a",
+          "size": {
+            "height": 258.01652165117611,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 240.63557951685817,
+            "y": 14.129688220092277
+          },
+          "nodeIndex": "SurveyResult",
+          "nodeLineageTag": "a110776d-4f52-46f9-86b6-bc2bc34a013f",
+          "size": {
+            "height": 523.54354343220552,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 609.369265783717
+          },
+          "nodeIndex": "SurveyAgg",
+          "nodeLineageTag": "de13ac60-7df4-4549-af8b-d44cb0b578e2",
+          "size": {
+            "height": 310.64372283354487,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 574.07837231447627,
+            "y": 367.207375560524
+          },
+          "nodeIndex": "HocPhan",
+          "nodeLineageTag": "9cc44e10-eb6a-4972-8d2a-3e7e77bd686b",
+          "size": {
+            "height": 431.07390732644728,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 328.86463484761612,
+            "y": 899.156050191615
+          },
+          "nodeIndex": "DimHocPhan",
+          "nodeLineageTag": "f5796f40-2e8c-4493-a03f-68c44203e5be",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 730.20873753543265,
+            "y": 880.39561413366857
+          },
+          "nodeIndex": "S_DANH_MUC_KHOA",
+          "nodeLineageTag": "2dcbd313-76b6-4a69-84c1-944b0aa9c32c",
+          "size": {
+            "height": 314.97837817796994,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2074.765204168928,
+            "y": 459.1470913416415
+          },
+          "nodeIndex": "CLGV",
+          "nodeLineageTag": "cdaf481c-8e9e-4a10-b67d-90444451e3b8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 47.42238728516427,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

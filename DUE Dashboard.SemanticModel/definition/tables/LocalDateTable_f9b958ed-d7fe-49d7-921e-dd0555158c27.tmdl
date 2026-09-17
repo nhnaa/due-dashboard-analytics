@@ -1,0 +1,116 @@
+table LocalDateTable_f9b958ed-d7fe-49d7-921e-dd0555158c27
+	isHidden
+	showAsVariationsOnly
+	lineageTag: 19cb6680-1870-43e6-961a-1527a2d968a0
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: cf81b52a-52ae-4eb7-a8b7-41d5dcc109d9
+		dataCategory: PaddedDateTableDates
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+	column Năm = YEAR([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f25e9a4e-eb03-428a-8bd7-fbf1af4fd6c0
+		dataCategory: Years
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Year
+
+	column MonthNo = MONTH([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 91cea661-c4fb-42e8-a53a-4f0a56bdbda3
+		dataCategory: MonthOfYear
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = MonthNumber
+
+	column Tháng = FORMAT([Date], "MMMM")
+		dataType: string
+		isHidden
+		lineageTag: 577d0925-28ab-48ed-9e0f-dbcd723855fe
+		dataCategory: Months
+		summarizeBy: none
+		sortByColumn: MonthNo
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Month
+
+	column QuarterNo = INT(([MonthNo] + 2) / 3)
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ce97f578-ee4f-49a2-91ad-34b58e453fc7
+		dataCategory: QuarterOfYear
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = QuarterNumber
+
+	column Quý = "Qtr " & [QuarterNo]
+		dataType: string
+		isHidden
+		lineageTag: c8469fd4-7d57-4468-b36f-da436db7780e
+		dataCategory: Quarters
+		summarizeBy: none
+		sortByColumn: QuarterNo
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Quarter
+
+	column Ngày = DAY([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 48e83231-2a81-465d-83b1-eb574f1351ed
+		dataCategory: DayOfMonth
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Day
+
+	hierarchy 'Phân cấp ngày tháng'
+		lineageTag: fcaac32a-585d-4aeb-b797-d79716348a69
+
+		level Năm
+			lineageTag: a811726e-160d-4180-8533-76c7a29eea5c
+			column: Năm
+
+		level Quý
+			lineageTag: 2a264b37-de7d-4072-9381-2b82862bc0e4
+			column: Quý
+
+		level Tháng
+			lineageTag: 4a840800-ff74-4590-bc89-34cd93ced7d1
+			column: Tháng
+
+		level Ngày
+			lineageTag: 450b3a38-8932-4bee-a203-920cdb049b13
+			column: Ngày
+
+		annotation TemplateId = DateHierarchy
+
+	partition LocalDateTable_f9b958ed-d7fe-49d7-921e-dd0555158c27 = calculated
+		mode: import
+		source = Calendar(Date(Year(MIN('Survey'[CreatedDate])), 1, 1), Date(Year(MAX('Survey'[CreatedDate])), 12, 31))
+
+	annotation __PBI_LocalDateTable = true
+

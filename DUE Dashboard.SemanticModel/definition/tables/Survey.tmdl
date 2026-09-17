@@ -1,0 +1,81 @@
+table Survey
+	lineageTag: 87ee958f-6fdc-42ff-8670-2722562ee37a
+
+	column SurveyID
+		dataType: int64
+		formatString: 0
+		lineageTag: f34a246f-029f-4f04-9d67-a16fa4946406
+		summarizeBy: none
+		sourceColumn: SurveyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyGroupID
+		dataType: int64
+		formatString: 0
+		lineageTag: 95cd9784-7ea7-4961-b68b-86db21a91edc
+		summarizeBy: count
+		sourceColumn: SurveyGroupID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TermID
+		dataType: string
+		lineageTag: 51228b9e-2bba-4966-a05b-832afcd15093
+		summarizeBy: none
+		sourceColumn: TermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Question
+		dataType: string
+		lineageTag: 4637e557-590e-4b28-a962-5a2d52626814
+		summarizeBy: none
+		sourceColumn: Question
+
+		annotation SummarizationSetBy = Automatic
+
+	column ViewOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: db5baef2-60ff-4401-96a7-d0acbcc19d7f
+		summarizeBy: sum
+		sourceColumn: ViewOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3a47f37a-5823-4def-a527-9f24c49c3d8b
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 4391d9fb-5956-41ca-82a0-4833c024b76c
+			defaultHierarchy: LocalDateTable_f9b958ed-d7fe-49d7-921e-dd0555158c27.'Phân cấp ngày tháng'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedByUser
+		dataType: string
+		lineageTag: c53062a9-b43e-4aed-9162-1d498378d9fc
+		summarizeBy: none
+		sourceColumn: CreatedByUser
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Survey = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139:7125", "DUE_Dashboard"),
+				    dbo_Survey = Source{[Schema="dbo",Item="Survey"]}[Data]
+				in
+				    dbo_Survey
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

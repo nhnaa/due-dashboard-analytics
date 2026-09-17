@@ -1,0 +1,230 @@
+table DSSV
+	lineageTag: 788f1d6c-7e87-4de0-93a1-ae8c6a2f32f3
+
+	measure TlHocLai = ```
+			
+			DIVIDE(
+			    SUM('DSSV'[SO_MON_HOC_LAI]), 
+			    SUM('DSSV'[TONG_SO_MON_DK])
+			)
+			```
+		lineageTag: d09008a2-13d6-4a81-995c-168c67cf755f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TLThoiHoc = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        DISTINCTCOUNT(DSSV[MA_SINH_VIEN]),
+			        DSSV[RA_TRUONG_DUNG_HAN] = DSSV[NAM_NHAP_HOC]
+			    ),
+			    CALCULATE(
+			        DISTINCTCOUNT(DSSV[MA_SINH_VIEN]),
+			        ISBLANK(DSSV[RA_TRUONG_DUNG_HAN]) 
+			            || DSSV[RA_TRUONG_DUNG_HAN] >= DSSV[NAM_NHAP_HOC]
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 076a50bb-e006-410f-9869-1c7bb9b45f1e
+
+	measure Tong_SV_TotNghiep =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(DSSV[MA_SINH_VIEN]),
+			    DSSV[TRANG_THAI_HOC_TAP] = "Tốt nghiệp"
+			)
+		formatString: 0
+		lineageTag: e8289598-3d25-4db9-921d-b19a17fb4750
+
+	measure Tong_SV_DangHoc =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(DSSV[MA_SINH_VIEN]),
+			    DSSV[TRANG_THAI_HOC_TAP] = "Đang học"
+			)
+		formatString: 0
+		lineageTag: 66a9385a-09b1-4bbf-9b79-001e9849335c
+
+	column MA_SINH_VIEN
+		dataType: string
+		lineageTag: db70cd89-02b4-48f5-a380-0a6878f991f6
+		summarizeBy: none
+		sourceColumn: MA_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column HO_TEN_SV
+		dataType: string
+		lineageTag: d8cfcbcd-4694-4d70-8509-ece21536cda7
+		summarizeBy: none
+		sourceColumn: HO_TEN_SV
+
+		annotation SummarizationSetBy = Automatic
+
+	column KHOA
+		dataType: string
+		lineageTag: e4058542-f47f-4bb6-be5e-b35e0adf85e8
+		summarizeBy: none
+		sourceColumn: KHOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOP
+		dataType: string
+		lineageTag: d41af37b-1464-4f3d-a16f-0a022c64768c
+		summarizeBy: none
+		sourceColumn: LOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAM_NHAP_HOC
+		dataType: int64
+		formatString: 0
+		lineageTag: d9b32bd4-3d66-449a-81bf-9b78ca284ac2
+		summarizeBy: sum
+		sourceColumn: NAM_NHAP_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column KHOA_HOC
+		dataType: string
+		lineageTag: deb80039-6629-442b-8102-6fdd1798f5b8
+		summarizeBy: none
+		sourceColumn: KHOA_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TONG_SO_MON_DK
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f5c7f09-5dd2-4553-a77a-72685ab5040a
+		summarizeBy: sum
+		sourceColumn: TONG_SO_MON_DK
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_MON_HOC_LAN_DAU
+		dataType: int64
+		formatString: 0
+		lineageTag: 37f95fc0-c3eb-4e4f-9b43-9b286e3b2706
+		summarizeBy: sum
+		sourceColumn: SO_MON_HOC_LAN_DAU
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_MON_HOC_LAI
+		dataType: int64
+		formatString: 0
+		lineageTag: c25c5c63-1318-4e64-b38c-c85e467d689a
+		summarizeBy: sum
+		sourceColumn: SO_MON_HOC_LAI
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_MON_HOC_CAI_THIEN
+		dataType: int64
+		formatString: 0
+		lineageTag: b2406937-1c20-499e-8c72-0faf612011e1
+		summarizeBy: sum
+		sourceColumn: SO_MON_HOC_CAI_THIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_MON_THI_LAI
+		dataType: int64
+		formatString: 0
+		lineageTag: 072a8c9d-ad8a-4e75-8a9a-af7b6997e0bf
+		summarizeBy: sum
+		sourceColumn: SO_MON_THI_LAI
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIEM_TB_KY
+		dataType: double
+		lineageTag: 26fb0d34-f74d-439c-954a-42f993fa6996
+		summarizeBy: sum
+		sourceColumn: DIEM_TB_KY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PHAN_LOAI_DANG_KY
+		dataType: string
+		lineageTag: 029f0032-ed83-40cf-81dd-085cbef9913b
+		summarizeBy: none
+		sourceColumn: PHAN_LOAI_DANG_KY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANG_THAI_HOC_TAP
+		dataType: string
+		lineageTag: 37d322f6-ab90-4681-b9d8-a97d0259b7a6
+		summarizeBy: none
+		sourceColumn: TRANG_THAI_HOC_TAP
+
+		annotation SummarizationSetBy = Automatic
+
+	column RA_TRUONG_DUNG_HAN
+		dataType: string
+		lineageTag: d8d743bc-f115-4138-9ff1-2b9edb54c5df
+		summarizeBy: none
+		sourceColumn: RA_TRUONG_DUNG_HAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GIOI_TINH
+		dataType: string
+		lineageTag: 0a20d196-550f-473c-9a85-314f49e41a13
+		summarizeBy: none
+		sourceColumn: GIOI_TINH
+
+		annotation SummarizationSetBy = Automatic
+
+	column HKTT_TINH_THANHPHO
+		dataType: string
+		lineageTag: 5ef5d342-ac4b-4e93-87ad-80b85f1af8d3
+		summarizeBy: none
+		sourceColumn: HKTT_TINH_THANHPHO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_CHUYEN_NGANH
+		dataType: string
+		lineageTag: 2154a4e6-a557-4036-a436-d3db08c06486
+		summarizeBy: none
+		sourceColumn: TEN_CHUYEN_NGANH
+
+		annotation SummarizationSetBy = Automatic
+
+	column NGANH
+		dataType: string
+		lineageTag: 5923f72e-9f97-4a37-88ad-d160933a8243
+		summarizeBy: none
+		sourceColumn: NGANH
+
+		annotation SummarizationSetBy = Automatic
+
+	column rn
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c83269a-0fbb-4f50-bd0f-b1a3149a9c4c
+		summarizeBy: sum
+		sourceColumn: rn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DSSV = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139,7125", "DUE_Dashboard", [Query="EXEC sp_Dash_SinhVien_Snapshotttt"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

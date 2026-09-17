@@ -1,0 +1,51 @@
+table DimHocPhan
+	lineageTag: f5796f40-2e8c-4493-a03f-68c44203e5be
+
+	column MA_HOC_PHAN
+		lineageTag: a7f50b55-2ad9-4d24-b313-bbaa471d3ac6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MA_HOC_PHAN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_HOC_PHAN
+		lineageTag: bfe24da2-97cf-4c6a-b4d2-cdd4464772fd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TEN_HOC_PHAN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TenKhoa
+		lineageTag: 2804e1bc-b16c-4ea3-b959-01d9e5420490
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TenKhoa]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaKhoa
+		lineageTag: e2d6611d-5609-4d3e-b7e9-f30ecfd0876c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MaKhoa]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimHocPhan = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        HocPhan,
+				        "MA_HOC_PHAN", HocPhan[MA_HOC_PHAN],
+				        "TEN_HOC_PHAN", HocPhan[TEN_HOC_PHAN],
+				        "TenKhoa", HocPhan[TenKhoa],
+				        "MaKhoa", HocPhan[MaKhoa]
+				    )
+				)
+
+	annotation PBI_Id = 1daa9a40d3224f1687ea50197437b918
+

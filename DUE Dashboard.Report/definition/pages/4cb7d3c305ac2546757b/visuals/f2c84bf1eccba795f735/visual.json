@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f2c84bf1eccba795f735",
+  "position": {
+    "x": 236.52683996876587,
+    "y": 10.82802173593773,
+    "z": 0,
+    "height": 60,
+    "width": 1669.8849679325415,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "DASHBOARD QUẢN LÝ SINH VIÊN",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe (Bold)",
+                      "fontSize": "28pt",
+                      "color": "#12239e"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

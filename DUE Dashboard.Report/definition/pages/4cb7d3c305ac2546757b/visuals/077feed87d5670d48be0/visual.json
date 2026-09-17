@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "077feed87d5670d48be0",
+  "position": {
+    "x": 30.679394918490235,
+    "y": 16.242032603906594,
+    "z": 20000,
+    "height": 144.3736231458364,
+    "width": 147.98296372448232,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "image": [
+        {
+          "properties": {
+            "sourceFile": {
+              "image": {
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Logo DUE-1.png'"
+                    }
+                  }
+                },
+                "url": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "Logo_DUE-18117336401194194.png"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Normal'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PageNavigation'"
+                }
+              }
+            },
+            "navigationSection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'d83d0d4b08e50c6ceb40'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

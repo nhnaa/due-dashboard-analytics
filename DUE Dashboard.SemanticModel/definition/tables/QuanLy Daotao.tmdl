@@ -1,0 +1,305 @@
+table 'QuanLy Daotao'
+	lineageTag: fdf70a15-667c-4479-80e7-dda4d9e20a7d
+
+	measure %Duoi_7 = ```
+			
+			VAR TuSo = 
+			    CALCULATE(
+			        COUNTROWS('QuanLy Daotao'), 
+			        'QuanLy Daotao'[GPA10] < 7, 
+			        NOT ISBLANK('QuanLy Daotao'[GPA10])
+			    )
+			
+			VAR MauSo = 
+			    CALCULATE(
+			        DISTINCTCOUNT('QuanLy Daotao'[MA_SINH_VIEN]), 
+			        NOT ISBLANK('QuanLy Daotao'[GPA10])
+			    )
+			
+			RETURN 
+			    DIVIDE(TuSo, MauSo, BLANK())
+			```
+		lineageTag: 18db5567-6b2e-44d8-a1ed-6a6c5a424153
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '%Tren_8.5' = ```
+			
+			VAR TuSo = 
+			    CALCULATE(
+			        COUNTROWS('QuanLy Daotao'), 
+			        'QuanLy Daotao'[GPA10] > 8.5, 
+			        NOT ISBLANK('QuanLy Daotao'[GPA10])
+			    )
+			
+			VAR MauSo = 
+			    CALCULATE(
+			        DISTINCTCOUNT('QuanLy Daotao'[MA_SINH_VIEN]), 
+			        NOT ISBLANK('QuanLy Daotao'[GPA10])
+			    )
+			
+			RETURN 
+			    DIVIDE(TuSo, MauSo, BLANK())
+			```
+		lineageTag: 04b023f6-cc20-412a-a198-8764a11da161
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TyLeQuaMon = ```
+			
+			AVERAGEX(
+			    'QuanLy DaoTao', 
+			    DIVIDE('QuanLy DaoTao'[SoMonDat], 'QuanLy DaoTao'[TongDangKy])
+			)
+			```
+		lineageTag: 3edc1d63-4257-4b87-95b8-17b930df7515
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TyLeHocLai = ```
+			
+			DIVIDE(
+			    SUM('QuanLy DaoTao'[SoHocLai]), 
+			    SUM('QuanLy DaoTao'[TongDangKy])
+			)
+			```
+		lineageTag: e0b837ce-5558-455e-97f9-b647c21ba2ad
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Top10_DiemTB_HP =
+			
+			IF(
+			    RANKX(
+			        ALLSELECTED(DimHocPhan[TEN_HOC_PHAN]),
+			        CALCULATE(AVERAGE(HocPhan[DiemTB])),
+			        ,
+			        ASC
+			    ) <= 10,
+			    AVERAGE(HocPhan[DiemTB]),
+			    BLANK()
+			)
+		lineageTag: ef8711e7-f710-4f2c-b18b-6348cacd8a45
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Top10_TyLeRot =
+			
+			IF(
+			    RANKX(
+			        ALLSELECTED(DimHocPhan[TEN_HOC_PHAN]),
+			        CALCULATE(AVERAGE(HocPhan[TyLe_Rot])),
+			        ,
+			        DESC
+			    ) <= 10,
+			    AVERAGE(HocPhan[TyLe_Rot]),
+			    BLANK()
+			)
+		lineageTag: 45937fa6-b488-4222-b455-6c2b5e7fb0ab
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MA_SINH_VIEN
+		dataType: string
+		lineageTag: 99dd8393-9db9-49a6-b5a3-3773d96c1f31
+		summarizeBy: none
+		sourceColumn: MA_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column HO_VA_TEN
+		dataType: string
+		lineageTag: f5731461-4c96-43d8-bdae-d38222c98ff9
+		summarizeBy: none
+		sourceColumn: HO_VA_TEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column KHOA
+		dataType: string
+		lineageTag: ecc36134-a4a2-4a54-baf7-a88157411c8a
+		summarizeBy: none
+		sourceColumn: KHOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NGANH
+		dataType: string
+		lineageTag: 3653dcdf-db3e-4753-8407-26717d7f3bde
+		summarizeBy: none
+		sourceColumn: NGANH
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOP
+		dataType: string
+		lineageTag: 03a9f436-e738-4287-b508-8b944a7a499b
+		summarizeBy: none
+		sourceColumn: LOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAM_NHAP_HOC
+		dataType: int64
+		formatString: 0
+		lineageTag: 9803a06e-5c34-47fd-bae6-0fb2b19c4802
+		summarizeBy: sum
+		sourceColumn: NAM_NHAP_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANG_THAI
+		dataType: string
+		lineageTag: 3d54b4dd-62bb-4504-8e2c-f314dc66c25c
+		summarizeBy: none
+		sourceColumn: TRANG_THAI
+
+		annotation SummarizationSetBy = Automatic
+
+	column RA_TRUONG_DUNG_HAN
+		dataType: int64
+		formatString: 0
+		lineageTag: 78f410ab-8c52-41e1-8da1-4d7e948f81a5
+		summarizeBy: sum
+		sourceColumn: RA_TRUONG_DUNG_HAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GPA10
+		dataType: double
+		lineageTag: b90b25fc-2854-4699-ab1a-c6669806fa3c
+		summarizeBy: sum
+		sourceColumn: GPA10
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GPA4
+		dataType: double
+		lineageTag: 01863b1b-8aed-4251-b1f2-89251480094c
+		summarizeBy: sum
+		sourceColumn: GPA4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TongDangKy
+		dataType: int64
+		formatString: 0
+		lineageTag: 20da6adc-11ac-4126-b267-b6887456fc1d
+		summarizeBy: sum
+		sourceColumn: TongDangKy
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoHocLai
+		dataType: int64
+		formatString: 0
+		lineageTag: fee53602-9cf9-4de6-87d0-e4f6b035cfda
+		summarizeBy: sum
+		sourceColumn: SoHocLai
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoLanPhucKhao
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f76a7ef-c62f-459c-bbc1-1fe0537af52b
+		summarizeBy: sum
+		sourceColumn: SoLanPhucKhao
+
+		annotation SummarizationSetBy = Automatic
+
+	column TongMon
+		dataType: int64
+		formatString: 0
+		lineageTag: bd43dc2a-9f10-4ba2-a664-3ce2bc24341b
+		summarizeBy: sum
+		sourceColumn: TongMon
+
+		annotation SummarizationSetBy = Automatic
+
+	column Duoi7
+		dataType: int64
+		formatString: 0
+		lineageTag: a3234c08-6ab8-4d13-8457-e9011c84737c
+		summarizeBy: sum
+		sourceColumn: Duoi7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tren85
+		dataType: int64
+		formatString: 0
+		lineageTag: 736f8728-c50b-4814-b65b-2c7703208c96
+		summarizeBy: sum
+		sourceColumn: Tren85
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoMonDat
+		dataType: int64
+		formatString: 0
+		lineageTag: 144d2c45-2dd4-4695-ab91-09a2a5f3b04e
+		summarizeBy: sum
+		sourceColumn: SoMonDat
+
+		annotation SummarizationSetBy = Automatic
+
+	column XEP_LOAI_HOC_LUC
+		dataType: string
+		lineageTag: 7cc1e27a-fee3-45ac-9b30-b554c24963bc
+		summarizeBy: none
+		sourceColumn: XEP_LOAI_HOC_LUC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GPA10 bins' =
+			
+			SWITCH(
+			    TRUE(),
+			    'QuanLy Daotao'[GPA10] >= 8.5, "8.5 - 10",
+			    'QuanLy Daotao'[GPA10] >= 7.0, "7.0 - 8.4",
+			    'QuanLy Daotao'[GPA10] >= 5.5, "5.5 - 6.9",
+			    'QuanLy Daotao'[GPA10] >= 4.0, "4.0 - 5.4",
+			    "<4.0"
+			)
+		lineageTag: 2c68a20c-934b-4f18-99af-3c75f4719899
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TyLeDat_Mon
+		dataType: double
+		lineageTag: d33cf74d-b4ef-4198-9c04-b73fe1f9e03e
+		summarizeBy: sum
+		sourceColumn: TyLeDat_Mon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TyLeRot_mon
+		dataType: double
+		lineageTag: 3640b682-f6d7-43ca-8a23-797bc7ce17ac
+		summarizeBy: sum
+		sourceColumn: TyLeRot_mon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'QuanLy Daotao' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139,7125", "DUE_Dashboard", [Query="EXEC sp_Dash_KPI_QuanLyDaoTao"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,94 @@
+table S_DANH_MUC_KHOA
+	lineageTag: 2dcbd313-76b6-4a69-84c1-944b0aa9c32c
+
+	column MaKhoa
+		dataType: string
+		lineageTag: b3a5f0ed-fddc-4052-8b20-c8e2eea1bfb0
+		summarizeBy: none
+		sourceColumn: MaKhoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column TenKhoa
+		dataType: string
+		lineageTag: 844267eb-7ff2-43a6-9a37-b6f2a9fe611b
+		summarizeBy: none
+		sourceColumn: TenKhoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column TenKhoaRutGon
+		dataType: string
+		lineageTag: 802bf50e-9d8f-4d55-b9aa-de6f1d4d323b
+		summarizeBy: none
+		sourceColumn: TenKhoaRutGon
+
+		annotation SummarizationSetBy = Automatic
+
+	column ThuocTruong
+		dataType: int64
+		formatString: 0
+		lineageTag: ee72bece-5b13-48de-9a56-6aa518cab518
+		summarizeBy: sum
+		sourceColumn: ThuocTruong
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnHien
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a9e38f3-23dc-456c-9510-cd390af4395b
+		summarizeBy: sum
+		sourceColumn: AnHien
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vitri
+		dataType: int64
+		formatString: 0
+		lineageTag: b2244106-1b39-4f81-8be5-8697b7e7e383
+		summarizeBy: sum
+		sourceColumn: Vitri
+
+		annotation SummarizationSetBy = Automatic
+
+	column BaoGiang
+		dataType: int64
+		formatString: 0
+		lineageTag: 9aea91b2-d485-4901-af18-32d45308e790
+		summarizeBy: sum
+		sourceColumn: BaoGiang
+
+		annotation SummarizationSetBy = Automatic
+
+	column TinhGioGiang_LopNgoaiNgu
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b3e3c1e-0d0c-4f38-bf39-05625a58b6c7
+		summarizeBy: sum
+		sourceColumn: TinhGioGiang_LopNgoaiNgu
+
+		annotation SummarizationSetBy = Automatic
+
+	column TinhGioGiang_LopNgoaiTruong
+		dataType: int64
+		formatString: 0
+		lineageTag: 300170ca-3dae-4a00-9165-36427ee4d1d8
+		summarizeBy: sum
+		sourceColumn: TinhGioGiang_LopNgoaiTruong
+
+		annotation SummarizationSetBy = Automatic
+
+	partition S_DANH_MUC_KHOA = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139:7125", "DUE_Dashboard"),
+				    dbo_S_DANH_MUC_KHOA = Source{[Schema="dbo",Item="S_DANH_MUC_KHOA"]}[Data]
+				in
+				    dbo_S_DANH_MUC_KHOA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

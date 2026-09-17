@@ -1,0 +1,114 @@
+table SurveyAgg
+	lineageTag: de13ac60-7df4-4549-af8b-d44cb0b578e2
+
+	measure PhanHoi_GiangVien =
+			
+			CALCULATE(
+			    AVERAGEX(
+			        FILTER(
+			            SurveyAgg,
+			            SurveyAgg[SurveyGroupID] = 1
+			            && SurveyAgg[DiemTB] >= 1
+			            && SurveyAgg[DiemTB] <= 5
+			        ),
+			        SurveyAgg[DiemTB]
+			    )
+			)
+		lineageTag: 4d4211f1-a699-409d-a5a4-7b2f192c4645
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure PhanHoi_KiemTra =
+			
+			CALCULATE(
+			    AVERAGEX(
+			        FILTER(
+			            SurveyAgg,
+			            SurveyAgg[SurveyGroupID] = 2
+			            && SurveyAgg[DiemTB] >= 1
+			            && SurveyAgg[DiemTB] <= 5
+			        ),
+			        SurveyAgg[DiemTB]
+			    )
+			)
+		lineageTag: 0c57a28d-d73b-4805-9bd1-0bf4db0f18e9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SubjectID
+		lineageTag: 4e5deee7-1175-4ad0-9bca-8430d7606c88
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: SurveyResult[SubjectID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeacherID
+		lineageTag: f5515c9f-da79-48a2-a1f5-c8411f0597ff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: SurveyResult[TeacherID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TermID
+		lineageTag: 8207b95c-fe50-466e-8900-0949fa8a5e50
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: SurveyResult[TermID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassID
+		lineageTag: 90cd6ddf-2bab-4687-8ac8-654eafa830c5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: SurveyResult[ClassID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyGroupID
+		formatString: 0
+		lineageTag: 66368ae5-b8fe-41a7-a459-a359f59fd9ae
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: SurveyResult[SurveyGroupID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiemTB
+		lineageTag: 333a33ef-bd6b-4fa5-a6cf-e25a8db197f5
+		summarizeBy: average
+		isNameInferred
+		sourceColumn: [DiemTB]
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SoLuong
+		formatString: 0
+		lineageTag: ba71dbc6-f5b5-4f6d-a367-6b563feeb06f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [SoLuong]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SurveyAgg = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    SurveyResult,
+				    SurveyResult[SubjectID],
+				    SurveyResult[TeacherID],
+				    SurveyResult[TermID],
+				    SurveyResult[ClassID],
+				    SurveyResult[SurveyGroupID],
+				    "DiemTB", AVERAGE(SurveyResult[SurveyResultScore]),
+				    "SoLuong", COUNTROWS(SurveyResult)
+				)
+
+	annotation PBI_Id = ee598489a53b49c185c5d2eb9ca727f6
+

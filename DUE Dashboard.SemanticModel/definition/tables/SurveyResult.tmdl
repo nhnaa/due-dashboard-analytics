@@ -1,0 +1,156 @@
+table SurveyResult
+	lineageTag: a110776d-4f52-46f9-86b6-bc2bc34a013f
+
+	column SurveyResultID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d477d6a-aa51-4962-bc33-2bf6b07ef239
+		summarizeBy: count
+		sourceColumn: SurveyResultID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserID
+		dataType: string
+		lineageTag: 30570316-7381-42b4-8158-c91e714c524e
+		summarizeBy: none
+		sourceColumn: UserID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TermID
+		dataType: string
+		lineageTag: fcc395a5-9e83-4d8e-8799-155edcd1902b
+		summarizeBy: none
+		sourceColumn: TermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubjectID
+		dataType: string
+		lineageTag: 618ac7fe-5a54-4864-ba17-b7bfac789548
+		summarizeBy: none
+		sourceColumn: SubjectID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeacherID
+		dataType: string
+		lineageTag: 1351846d-fed9-4d6d-b682-ae44d1d54d80
+		summarizeBy: none
+		sourceColumn: TeacherID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 6a97a017-0baa-44c4-9cf8-9e477363f538
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 92f43248-101a-44ef-b825-b803b876125b
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyGroupID
+		dataType: int64
+		formatString: 0
+		lineageTag: b7b2b042-d1fb-4c39-b61b-eb3b3864ae59
+		summarizeBy: count
+		sourceColumn: SurveyGroupID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyID
+		dataType: int64
+		formatString: 0
+		lineageTag: 91c60fa8-4287-4dc7-a689-d2ec59915265
+		summarizeBy: none
+		sourceColumn: SurveyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyResultScore
+		dataType: int64
+		formatString: 0
+		lineageTag: f3a89d99-6e34-41fc-9e36-c5f15ae23120
+		summarizeBy: sum
+		sourceColumn: SurveyResultScore
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassID
+		dataType: string
+		lineageTag: efe4396e-e6df-4647-811a-f7cd327282ec
+		summarizeBy: none
+		sourceColumn: ClassID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacultyID
+		dataType: string
+		lineageTag: df831290-3c38-4894-aac1-0a804bd562ee
+		summarizeBy: none
+		sourceColumn: FacultyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Note
+		dataType: string
+		lineageTag: 24ca8763-278b-4649-a056-39e44ff1adbf
+		summarizeBy: none
+		sourceColumn: Note
+
+		annotation SummarizationSetBy = Automatic
+
+	column GHICHU_CDR_NDUNG_HOCPHAN
+		dataType: string
+		lineageTag: 5dd3b861-2ff0-40e7-ae10-0284bb9d9c5d
+		summarizeBy: none
+		sourceColumn: GHICHU_CDR_NDUNG_HOCPHAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GHICHU_HDONG_DAYHOC
+		dataType: string
+		lineageTag: be67708d-2b50-4da2-a84e-a921462d3dd8
+		summarizeBy: none
+		sourceColumn: GHICHU_HDONG_DAYHOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column GHICHU_KIEMTRA_DANHGIA
+		dataType: string
+		lineageTag: 3c044ec1-b761-450b-8ce6-3b502dd3f427
+		summarizeBy: none
+		sourceColumn: GHICHU_KIEMTRA_DANHGIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GHICHU_KHAC
+		dataType: string
+		lineageTag: fce48454-f28f-4587-ac31-71d7cdfaa566
+		summarizeBy: none
+		sourceColumn: GHICHU_KHAC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SurveyResult = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139:7125", "DUE_Dashboard"),
+				    dbo_SurveyResult = Source{[Schema="dbo",Item="SurveyResult"]}[Data]
+				in
+				    dbo_SurveyResult
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

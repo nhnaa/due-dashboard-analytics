@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "d83d0d4b08e50c6ceb40",
+  "displayName": "Home",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'yyy.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "yyy6025017156585437.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

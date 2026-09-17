@@ -1,0 +1,207 @@
+table CLGV
+	lineageTag: cdaf481c-8e9e-4a10-b67d-90444451e3b8
+
+	measure 'DTB all' = CALCULATE(AVERAGE(CLGV[DIEM_HE_10]), ALL(CLGV))
+		lineageTag: 216d82a8-b1fa-49e3-a627-3040320edb1f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DTB GV' = AVERAGE(CLGV[DIEM_HE_10])
+		lineageTag: 13778b85-21e5-434b-b035-b40369c48e3a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Deviation = [DTB GV] - [DTB all]
+		lineageTag: 8a8302d1-be51-4fd3-ba03-cdd5917b9dbf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MA_GIAO_VIEN
+		dataType: string
+		lineageTag: 60cffd88-2ad4-4c6c-b38c-49164382edd7
+		summarizeBy: none
+		sourceColumn: MA_GIAO_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_GIANG_VIEN
+		dataType: string
+		lineageTag: 69d793bb-396f-44c4-be10-f16cd01e5b38
+		summarizeBy: none
+		sourceColumn: TEN_GIANG_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GIOI_TINH_GV
+		dataType: string
+		lineageTag: c2d33425-e28e-40da-9b6c-df23afb8fe15
+		summarizeBy: none
+		sourceColumn: GIOI_TINH_GV
+
+		annotation SummarizationSetBy = Automatic
+
+	column MA_SINH_VIEN
+		dataType: string
+		lineageTag: 9e2018a2-1266-47d3-8ed6-eea31ab786f2
+		summarizeBy: none
+		sourceColumn: MA_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_SINH_VIEN
+		dataType: string
+		lineageTag: 02f2266b-f72b-4105-a786-a985910df456
+		summarizeBy: none
+		sourceColumn: TEN_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOP
+		dataType: string
+		lineageTag: 05368e06-9f21-4f9e-b97a-55f0df246422
+		summarizeBy: none
+		sourceColumn: LOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column KY_HOC
+		dataType: string
+		lineageTag: 18358a6b-7776-4281-8782-bd259ce17e88
+		summarizeBy: none
+		sourceColumn: KY_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAM_HOC
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b2d6c15-f314-47bc-8075-de74b15b3bde
+		summarizeBy: sum
+		sourceColumn: NAM_HOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column MA_HOC_PHAN
+		dataType: string
+		lineageTag: 8350f0da-e8bb-425a-843c-3a06f6e93319
+		summarizeBy: none
+		sourceColumn: MA_HOC_PHAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column MA_LOP_TIN_CHI
+		dataType: string
+		lineageTag: 1ddf55e9-dd17-4739-9a26-46acb40a154f
+		summarizeBy: none
+		sourceColumn: MA_LOP_TIN_CHI
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIEM_HE_10
+		dataType: double
+		lineageTag: 0bd05be8-ea4a-4123-a104-4a37353a8ed5
+		summarizeBy: sum
+		sourceColumn: DIEM_HE_10
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"CLGV","TableItemName":"DIEM_HE_10 (bins)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column DIEM_HE_4
+		dataType: double
+		lineageTag: c3e60eb4-0fb5-4c5e-a644-bc588362b4c3
+		summarizeBy: sum
+		sourceColumn: DIEM_HE_4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DIEM_HE_10 (bins)' =
+			IF(
+				ISBLANK('CLGV'[DIEM_HE_10]),
+				BLANK(),
+				IF(
+					'CLGV'[DIEM_HE_10] >= 0,
+					ROUNDDOWN('CLGV'[DIEM_HE_10] / 0.2, 0) * 0.2,
+					ROUNDUP('CLGV'[DIEM_HE_10] / 0.2, 0) * 0.2
+				)
+			)
+		lineageTag: d4fbccea-56bd-4903-ac51-1d75450100c5
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "CLGV"
+				          }
+				        },
+				        "Property": "DIEM_HE_10"
+				      }
+				    }
+				  ],
+				  "binningMetadata": {
+				    "binSize": {
+				      "value": 0.2,
+				      "unit": 0
+				    }
+				  }
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"c","Entity":"CLGV"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"DIEM_HE_10"}}],"BinItem":{"Expression":{"Floor":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"DIEM_HE_10"}},"Size":0.2}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KHOA_GIANG_VIEN
+		dataType: string
+		lineageTag: 2e3f8004-e293-425d-98e9-ac28fbebc474
+		summarizeBy: none
+		sourceColumn: KHOA_GIANG_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column KHOA_SINH_VIEN
+		dataType: string
+		lineageTag: 69f2832b-60d8-422f-9c7e-244c7ea0dd11
+		summarizeBy: none
+		sourceColumn: KHOA_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column NGANH_SINH_VIEN
+		dataType: string
+		lineageTag: e3c43949-befc-4f96-89d9-96fc79dcf4ad
+		summarizeBy: none
+		sourceColumn: NGANH_SINH_VIEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEN_HOC_PHAN
+		dataType: string
+		lineageTag: e15cab1a-0c0d-4c6d-b1af-1d0b6278de0f
+		summarizeBy: none
+		sourceColumn: TEN_HOC_PHAN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CLGV = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("14.238.48.139,7125", "DUE_Dashboard", [Query="EXEC sp_Dash_DiemSinhVien_TheoGV"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
